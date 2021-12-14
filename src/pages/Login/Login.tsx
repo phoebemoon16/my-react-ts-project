@@ -2,13 +2,13 @@
  * @Author: wanghh
  * @Date: 2021-12-14 08:43:32
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-14 09:05:14
+ * @LastEditTime: 2021-12-14 10:53:07
  * @Description: 
  */
 import React from 'react';
 import { Form, Input, Button } from 'antd'
 import './login.less'
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 
 interface UserLayoutState {
     isError: boolean;

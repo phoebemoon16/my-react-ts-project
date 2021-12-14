@@ -3,12 +3,13 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-14 08:44:43
+ * @LastEditTime: 2021-12-14 17:58:57
  * @Description: 路由设置
  */
-import React from 'react';
+// import React from 'react';
 import UserLayout from '../layouts/UserLayout';
-import Login from '../pages/Login'
+import Login from '../pages/Login/Login'
+import Demo1 from '../pages/Demo/demo1';
 
 export interface IRouteBase {
     path: string;
@@ -30,8 +31,7 @@ export interface IRoute extends IRouteBase {
 
 const routes:IRoute[] = [
     {
-        path:'/home',
-        component:React.lazy(() => import('../layouts/UserLayout')),
+        path:'/',
         meta: {
             title: '系统路由'
         },
@@ -40,12 +40,19 @@ const routes:IRoute[] = [
     },
     {
         path:'/login',
-        component:React.lazy(() => import('../layouts/UserLayout')),
         meta: {
             title: '登录页面'
         },
         children:[],
         main: Login
+    },
+    {
+        path:'/demo1',
+        meta: {
+            title: 'demo'
+        },
+        children:[],
+        main: Demo1
     }
 ]
 
