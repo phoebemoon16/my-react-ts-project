@@ -3,14 +3,14 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-14 17:58:57
+ * @LastEditTime: 2021-12-15 15:55:57
  * @Description: 路由设置
  */
 // import React from 'react';
 import UserLayout from '../layouts/UserLayout';
 import Login from '../pages/Login/Login'
 import Demo1 from '../pages/Demo/demo1';
-
+import Props from '../pages/Demo/props'
 export interface IRouteBase {
     path: string;
     component?: any;
@@ -53,6 +53,14 @@ const routes:IRoute[] = [
         },
         children:[],
         main: Demo1
+    },
+    {
+        path:'/props',
+        meta: {
+            title: 'demo'
+        },
+        children:[],
+        main: Props
     }
 ]
 

@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-09 18:15:54
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-14 18:12:22
+ * @LastEditTime: 2021-12-15 08:32:25
  * @Description: 
  */
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -16,7 +16,7 @@ interface UserLayoutState {
   }
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header, Sider } = Layout;
   
 
 function layout (){
@@ -65,21 +65,6 @@ function layout (){
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <Content
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            margin: 0,
-            minHeight: 280,
-          }}
-        >
-         {/* <Routes>{
-        routes.map((route,index) => (
-          <Route key={index} path={route.path} element={<route.main />} />
-        ))
-        } 
-    </Routes> */}
-        </Content>
       </Layout>
     </Layout>
   </Layout>
