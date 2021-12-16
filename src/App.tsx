@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-10 08:43:07
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-15 15:57:31
+ * @LastEditTime: 2021-12-16 17:16:55
  * @Description: 
  */
 import React from 'react';
@@ -46,7 +46,9 @@ function App() {
             <Menu.Item key="3">
               <Link to="/props">props练习</Link>
             </Menu.Item>
-            <Menu.Item key="4">option4</Menu.Item>
+            <Menu.Item key="4">
+            <Link to="/list">list 循环练习</Link>
+            </Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
             <Menu.Item key="5">option5</Menu.Item>

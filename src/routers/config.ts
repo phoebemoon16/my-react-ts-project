@@ -3,7 +3,7 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-15 15:55:57
+ * @LastEditTime: 2021-12-16 17:15:54
  * @Description: 路由设置
  */
 // import React from 'react';
@@ -11,6 +11,8 @@ import UserLayout from '../layouts/UserLayout';
 import Login from '../pages/Login/Login'
 import Demo1 from '../pages/Demo/demo1';
 import Props from '../pages/Demo/props'
+import List from '../pages/Demo/list'
+
 export interface IRouteBase {
     path: string;
     component?: any;
@@ -61,6 +63,14 @@ const routes:IRoute[] = [
         },
         children:[],
         main: Props
+    },
+    {
+        path:'/list',
+        meta: {
+            title: 'demo'
+        },
+        children:[],
+        main: List
     }
 ]
 
