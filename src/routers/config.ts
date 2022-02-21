@@ -1,9 +1,8 @@
-
 /*
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-16 17:15:54
+ * @LastEditTime: 2022-02-21 14:51:43
  * @Description: 路由设置
  */
 // import React from 'react';
@@ -12,7 +11,7 @@ import Login from '../pages/Login/Login'
 import Demo1 from '../pages/Demo/demo1';
 import Props from '../pages/Demo/props'
 import List from '../pages/Demo/list'
-
+import Example from '../pages/Demo/funHook'
 export interface IRouteBase {
     path: string;
     component?: any;
@@ -71,6 +70,15 @@ const routes:IRoute[] = [
         },
         children:[],
         main: List
+    },
+    // StatusList
+    {
+        path:'/statusList',
+        meta: {
+            title: 'demo'
+        },
+        children:[],
+        main: Example
     }
 ]
 

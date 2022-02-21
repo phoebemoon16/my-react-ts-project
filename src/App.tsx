@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-10 08:43:07
  * @LastEditors: wanghh
- * @LastEditTime: 2021-12-16 17:16:55
+ * @LastEditTime: 2021-12-27 09:17:20
  * @Description: 
  */
 import React from 'react';
@@ -51,7 +51,7 @@ function App() {
             </Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
-            <Menu.Item key="5">option5</Menu.Item>
+            <Menu.Item key="5"> <Link to="/statusList">状态练习</Link></Menu.Item>
             <Menu.Item key="6">option6</Menu.Item>
             <Menu.Item key="7">option7</Menu.Item>
             <Menu.Item key="8">option8</Menu.Item>
