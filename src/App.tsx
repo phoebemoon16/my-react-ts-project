@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-10 08:43:07
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-20 14:19:45
+ * @LastEditTime: 2022-05-23 11:17:38
  * @Description:
  */
 import React from 'react'
@@ -33,15 +33,21 @@ function App() {
       <Layout>
         <Sider width={200} className="site-layout-background">
           <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} style={{ height: '100%', borderRight: 0 }}>
-            {routes.map(route => (
-              <SubMenu key={route.path} title={route.meta.title}>
-                {route.children.map(item => (
-                  <Menu.Item key={item.path}>
-                    <Link to={item.path}>{item.meta.title}</Link>
-                  </Menu.Item>
-                ))}
-              </SubMenu>
-            ))}
+            {routes.map(route =>
+              route && route.children && route.children.length > 0 ? (
+                <SubMenu key={route.path} title={route.meta.title}>
+                  {route.children.map(item => (
+                    <Menu.Item key={item.path}>
+                      <Link to={item.path}>{item.meta.title}</Link>
+                    </Menu.Item>
+                  ))}
+                </SubMenu>
+              ) : (
+                <Menu.Item key={route.path + 'menu'}>
+                  <Link to={route.path}>{route.meta.title}</Link>
+                </Menu.Item>
+              )
+            )}
           </Menu>
         </Sider>
         <Layout style={{ padding: '0 24px 24px', backgroundColor: 'white', border: '5px solid #eee' }}>
@@ -56,11 +62,12 @@ function App() {
               <Breadcrumb.Item>{location.pathname}</Breadcrumb.Item>
             </Breadcrumb>
             <Routes>
-              {routes.map((route, index) => (
-                <Route key={index} path={route.path} element={<route.main />} />
-              ))}
               {routes.map((route, index) =>
-                route.children.map((item, index) => <Route key={index} path={item.path} element={<item.main />} />)
+                route && route.children && route.children.length > 0 ? (
+                  route.children.map((item, index) => <Route key={index} path={item.path} element={<item.main />} />)
+                ) : (
+                  <Route key={index} path={route.path} element={<route.main />} />
+                )
               )}
             </Routes>
           </Content>

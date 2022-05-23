@@ -2,12 +2,12 @@
  * @Author: wanghh
  * @Date: 2022-05-20 08:53:16
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-20 14:04:52
+ * @LastEditTime: 2022-05-23 16:06:19
  * @Description:
  */
 import React, { Suspense, useState } from 'react'
 // import Children from './children'
-import { MyContext } from './MyContext'
+import { MyContext, themes } from './MyContext'
 
 const Children = React.lazy(() => import('./children'))
 
@@ -30,7 +30,8 @@ function Example() {
   return (
     <div>
       <p> 我是父元素 {value}</p>
-      <MyContext.Provider value={parentTheme}>
+      {/* 动态获取属性的设置 */}
+      <MyContext.Provider value={themes[theme]}>
         <Suspense fallback={<div>Loading...</div>}>
           <Children name="hahaha" callbackParent={handleChange} />
         </Suspense>

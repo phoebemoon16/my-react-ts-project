@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-20 09:02:47
+ * @LastEditTime: 2022-05-23 11:31:48
  * @Description: 路由设置
  */
 // import React from 'react';
@@ -12,6 +12,7 @@ import Demo1 from '../pages/Demo/demo1'
 import Props from '../pages/Demo/props'
 import List from '../pages/Demo/list'
 import Example from '../pages/Demo/funHook'
+import WeChat from '../pages/Demo/chat'
 import Parent from '../pages/valueTrans/parent'
 export interface IRouteBase {
   path: string
@@ -28,7 +29,7 @@ export interface IRouteMeta {
 }
 
 export interface IRoute extends IRouteBase {
-  children: IRouteBase[]
+  children?: IRouteBase[]
 }
 
 const routes: IRoute[] = [
@@ -67,8 +68,16 @@ const routes: IRoute[] = [
     meta: {
       title: '登录页面'
     },
-    children: [],
-    main: Login
+    main: UserLayout,
+    children: [
+      {
+        path: '/login/index',
+        meta: {
+          title: '登录页面'
+        },
+        main: Login
+      }
+    ]
   },
   {
     path: '/props',
@@ -94,6 +103,14 @@ const routes: IRoute[] = [
     },
     children: [],
     main: Example
+  },
+  {
+    path: '/weChat',
+    meta: {
+      title: '聊天框'
+    },
+    children: [],
+    main: WeChat
   }
 ]
 
