@@ -2,11 +2,10 @@
  * @Author: wanghh
  * @Date: 2022-05-23 11:25:18
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-23 17:27:42
+ * @LastEditTime: 2022-05-23 18:12:13
  * @Description:
  */
 import React, { useState } from 'react'
-import './chat.scss'
 import './chat.css'
 // import style from './chat.less'
 import { Input } from 'antd'
