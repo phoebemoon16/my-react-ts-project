@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-19 15:58:41
+ * @LastEditTime: 2022-05-20 09:02:47
  * @Description: 路由设置
  */
 // import React from 'react';
@@ -12,6 +12,7 @@ import Demo1 from '../pages/Demo/demo1'
 import Props from '../pages/Demo/props'
 import List from '../pages/Demo/list'
 import Example from '../pages/Demo/funHook'
+import Parent from '../pages/valueTrans/parent'
 export interface IRouteBase {
   path: string
   component?: any
@@ -51,6 +52,13 @@ const routes: IRoute[] = [
           title: 'demo1'
         },
         main: Demo1
+      },
+      {
+        path: '/parent',
+        meta: {
+          title: '父子传值'
+        },
+        main: Parent
       }
     ]
   },
