@@ -1,0 +1,40 @@
+.Main {
+  width: 80%;
+}
+.title {
+  color: red;
+}
+
+h4 {
+  color: red;
+}
+
+.text-area {
+}
+
+.top-10 {
+  margin-top: 10px;
+}
+
+.layoutFlex {
+  display: flex;
+  .left {
+    width: 49%;
+    margin-right: 10px;
+  }
+  .right {
+    width: 49%;
+  }
+}
+
+.content {
+  width: 100%;
+  margin-top: 10px;
+  min-height: 200px;
+  background-color: #e8ecf0;
+}
+
+.floatRight {
+  float: right;
+  margin-right: 10px;
+}
