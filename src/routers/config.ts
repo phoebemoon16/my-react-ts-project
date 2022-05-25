@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-23 11:31:48
+ * @LastEditTime: 2022-05-25 10:41:35
  * @Description: 路由设置
  */
 // import React from 'react';
@@ -14,6 +14,7 @@ import List from '../pages/Demo/list'
 import Example from '../pages/Demo/funHook'
 import WeChat from '../pages/Demo/chat'
 import Parent from '../pages/valueTrans/parent'
+import Reduxs from '../pages/Redux'
 export interface IRouteBase {
   path: string
   component?: any
@@ -76,6 +77,13 @@ const routes: IRoute[] = [
           title: '登录页面'
         },
         main: Login
+      },
+      {
+        path: '/list',
+        meta: {
+          title: 'list'
+        },
+        main: List
       }
     ]
   },
@@ -86,14 +94,6 @@ const routes: IRoute[] = [
     },
     children: [],
     main: Props
-  },
-  {
-    path: '/list',
-    meta: {
-      title: 'list'
-    },
-    children: [],
-    main: List
   },
   // StatusList
   {
@@ -111,6 +111,14 @@ const routes: IRoute[] = [
     },
     children: [],
     main: WeChat
+  },
+  {
+    path: '/reduxs',
+    meta: {
+      title: 'redux学习'
+    },
+    children: [],
+    main: Reduxs
   }
 ]
 

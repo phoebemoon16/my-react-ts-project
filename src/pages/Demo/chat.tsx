@@ -2,12 +2,10 @@
  * @Author: wanghh
  * @Date: 2022-05-23 11:25:18
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-24 15:57:30
+ * @LastEditTime: 2022-05-25 14:10:39
  * @Description:
  */
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch, Provider } from 'react-redux'
-import { decrement, increment } from '../../store/counterSlice'
 import { Button } from 'antd'
 import './chat.scss'
 // import style from './chat.less'
@@ -16,8 +14,6 @@ import { Input } from 'antd'
 const { TextArea } = Input
 
 function WeChat() {
-  const count = useSelector((state: any) => state.counter.value)
-  const dispatch = useDispatch()
   const [chatArr, setChatArr] = useState([{ context1: '', context2: '' }])
   const [text1, setText1] = useState<string>('')
   const [text2, setText2] = useState<string>('')
@@ -56,12 +52,12 @@ function WeChat() {
 
   const handleSet = () => {
     setChatArr([])
+    setText1('')
+    setText2('')
   }
   return (
     <div className="Main">
       <h4 className="title">wechat 聊天框</h4>
-      <Button onClick={() => dispatch(increment())}>触发store的加事件</Button>
-      <Button onClick={() => dispatch(decrement())}>触发store的减事件</Button>
       {/* 展示的聊天信息 */}
       <div className="top-10 layoutFlex">
         <div className="left">
@@ -97,10 +93,10 @@ function WeChat() {
       </Button>
       <ul className="content">
         {chatArr.map((item, index) => (
-          <p key={index}>
+          <div key={index}>
             <p> {item.context1}</p>
             <p className="floatRight"> {item.context2}</p>
-          </p>
+          </div>
         ))}
       </ul>
     </div>
