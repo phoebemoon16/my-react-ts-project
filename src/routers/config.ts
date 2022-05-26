@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2021-12-09 17:46:20
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-25 10:41:35
+ * @LastEditTime: 2022-05-26 09:28:06
  * @Description: 路由设置
  */
 // import React from 'react';
@@ -97,9 +97,9 @@ const routes: IRoute[] = [
   },
   // StatusList
   {
-    path: '/statusList',
+    path: '/hook',
     meta: {
-      title: 'statusList'
+      title: 'HOOK学习'
     },
     children: [],
     main: Example
