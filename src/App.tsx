@@ -11,7 +11,7 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom'
 import routes from './routers/config'
 import { Layout, Menu, Breadcrumb } from 'antd'
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
+// import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
 import Demo1 from './pages/Demo/demo1'
 
 const { SubMenu } = Menu

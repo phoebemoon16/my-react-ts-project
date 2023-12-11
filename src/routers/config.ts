@@ -15,6 +15,7 @@ import Example from '../pages/Demo/funHook'
 import WeChat from '../pages/Demo/chat'
 import Parent from '../pages/valueTrans/parent'
 import Reduxs from '../pages/Redux'
+import Draggable from '../pages/Dragable'
 export interface IRouteBase {
   path: string
   component?: any
@@ -119,7 +120,15 @@ const routes: IRoute[] = [
     },
     children: [],
     main: Reduxs
+  },
+  {
+    path: '/draggable',
+    meta: {
+      title: 'Draggable'
+    },
+    children: [],
+    main: Draggable
   }
 ]
-
+// Draggable
 export default routes
