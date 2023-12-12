@@ -16,6 +16,7 @@ import WeChat from '../pages/Demo/chat'
 import Parent from '../pages/valueTrans/parent'
 import Reduxs from '../pages/Redux'
 import Draggable from '../pages/Dragable'
+import Sortable from '../pages/Sortable'
 export interface IRouteBase {
   path: string
   component?: any
@@ -122,12 +123,27 @@ const routes: IRoute[] = [
     main: Reduxs
   },
   {
-    path: '/draggable',
+    path: '/login',
     meta: {
-      title: 'Draggable'
+      title: '登录页面'
     },
-    children: [],
-    main: Draggable
+    main: UserLayout,
+    children: [
+      {
+        path: '/draggable',
+        meta: {
+          title: 'Draggable'
+        },
+        main: Draggable
+      },
+      {
+        path: '/sortable',
+        meta: {
+          title: 'Sortable'
+        },
+        main: Sortable
+      }
+    ]
   }
 ]
 // Draggable

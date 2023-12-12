@@ -2,12 +2,14 @@
  * @Author: wanghh
  * @Date: 2021-12-14 10:59:12
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-23 10:46:36
+ * @LastEditTime: 2022-08-01 17:30:31
  * @Description: 联系接口ts的使用
  */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import { Button } from 'antd'
+import { MyContext, form } from '../../context/formContext'
 
+const InitForm = React.lazy(() => import('../../components/BasicForm'))
 interface Status {
   isOnline: null
 }
@@ -73,6 +75,12 @@ function Demo() {
       {renderList(obj)}
       <Button onClick={() => setCount(count + 1)}>count + 1</Button>
       {/* <Button onClick={() => handleStatusChange({ isOnline: true })}>触发hook上的函数</Button> */}
+
+      <MyContext.Provider value={form}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <InitForm></InitForm>
+        </Suspense>
+      </MyContext.Provider>
     </div>
   )
 }

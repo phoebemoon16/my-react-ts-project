@@ -2,7 +2,7 @@
  * @Author: wanghh
  * @Date: 2022-05-23 11:25:18
  * @LastEditors: wanghh
- * @LastEditTime: 2022-05-25 14:10:39
+ * @LastEditTime: 2023-11-14 15:16:49
  * @Description:
  */
 import React, { useEffect, useState } from 'react'
@@ -17,6 +17,8 @@ function WeChat() {
   const [chatArr, setChatArr] = useState([{ context1: '', context2: '' }])
   const [text1, setText1] = useState<string>('')
   const [text2, setText2] = useState<string>('')
+
+  const imgSrc1: string = 'https://i.imgur.com/7vQD0fPs'
   useEffect(() => {
     console.log(`${chatArr} count`)
   })
@@ -57,6 +59,7 @@ function WeChat() {
   }
   return (
     <div className="Main">
+      <img src={imgSrc1 + '.jpg'} alt="img" />
       <h4 className="title">wechat 聊天框</h4>
       {/* 展示的聊天信息 */}
       <div className="top-10 layoutFlex">
