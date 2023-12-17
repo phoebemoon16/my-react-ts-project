@@ -23,13 +23,38 @@ function Example() {
   /* 面试题：useEffect 与 useLayoutEffect 的区别
   *  1.两个都是处理副作用的,这个副作用包括了改变DOM 设置订阅 操作定时器等 
     函数组件内部是不容许操作副作用的 所以需要这两个函数去处理
-    useState设置状态的时候只有第一次生效 后期需要更新状态，必须通过useEffect
+    useState设置状态的时候只有第一次生效 后期需要更新状态，必须通过useEffect.
     useEffect也是清除的 和 无需清除的 需要清除的则是需要返回一个函数的 
+    类似于监听
   */
   useEffect(() => {
-    // setCount(count+2) 生效
-    document.title = `you clicked ${count} times`
+    // count改变状态生效
+    document.title = `useEffect：you clicked ${count} times`
+    console.log(count, 'count000')
+  }, [count])
+
+  useEffect(() => {
+    // 仅在初始渲染后执行
+    document.title = `useEffect：you clicked ${count} times`
+    console.log(count, '依赖响应式为空数组')
+  }, [])
+
+  useEffect(() => {
+    // 会在组件的每次单独渲染和重新渲染之后运行
+    document.title = `useEffect：you clicked ${count} times`
+    console.log(count, '依赖响应式为null')
   })
+
+  /**
+   * 首次渲染 按顺序打印
+   * 0 'count000'
+     0 '依赖响应式为空数组'
+     0 '依赖响应式为null'
+
+     修改state count的值
+     1 'count000'
+     1 '依赖响应式为null'
+   */
 
   // 随着count的变化 而改变 类似于vue的computed
   const memoCount = useMemo(() => count + 'useMeno', [count])
@@ -39,7 +64,7 @@ function Example() {
   return (
     <div>
       <p>
-        You clicked <span style={{ color: 'red' }}>{count} </span>
+        You clicked ，emit useEffect:<span style={{ color: 'red' }}>{count} </span>
         times --- memoCount: <span style={{ color: 'red' }}>{memoCount}</span>
       </p>
       <button onClick={() => setCount(count + 1)}>Click me</button>
