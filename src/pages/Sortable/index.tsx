@@ -1,4 +1,12 @@
 import { useState }  from 'react'
+
+interface ProductType {
+  category: string,
+  price: string,
+  stocked: boolean,
+  name: string
+}
+
 function ProductCategoryRow({category}){
   return (
     <tr>
@@ -26,7 +34,7 @@ function ProjecTable({ products, filterText, inStockOnly }) {
   const rows: [] = []
   let lastCategory: null = null;
 
-  products.forEach(product: ProductType => {
+  products.forEach(product => {
     // 将name中不含过滤字符的字段 过滤掉
     if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
       return
@@ -43,7 +51,7 @@ function ProjecTable({ products, filterText, inStockOnly }) {
     }
     rows.push(
       <ProductRow
-        category={product}
+        product={product}
         key={product.name} />
     );
     lastCategory = product.category;
@@ -68,7 +76,7 @@ function SearchBar({
   onInStockOnlyChange}) {
   return (
     <form>
-      <input type="text" value={{filterText}} placeholder="Search ..."  onChange={(e) => onFilterTextChange(e.target.value)} ></input>
+      <input type="text" value={filterText} placeholder="Search ..."  onChange={(e) => onFilterTextChange(e.target.value)} ></input>
       <label>
         <input type="checkbox" checked = {inStockOnly}  onChange={(e) => onInStockOnlyChange(e.target.checked)} ></input> 
         only show products in stock
@@ -91,12 +99,6 @@ function FilterProductTable({ products }) {
   )
 }
 
-interface ProductType {
-  category: string,
-  price: string,
-  stocked: boolean,
-  name: string
-}
 const PRODUCTS: ProductType[] = [
   { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
   { category: 'Fruits', price: '$1', stocked: true, name: 'Dragonfruit' },

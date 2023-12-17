@@ -125,7 +125,7 @@ const routes: IRoute[] = [
   {
     path: '/login',
     meta: {
-      title: '登录页面'
+      title: '插件学习页面'
     },
     main: UserLayout,
     children: [
