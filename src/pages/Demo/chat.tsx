@@ -6,6 +6,7 @@
  * @Description:
  */
 import React, { useEffect, useState } from 'react'
+import { useNavigate, redirect, useSearchParams } from 'react-router-dom'   
 import { Button } from 'antd'
 import './chat.scss'
 // import style from './chat.less'
@@ -50,8 +51,21 @@ function WeChat() {
       })
     }
     setChatArr(arr)
-  }
+    redirect('/hook')
 
+    // useHistory.push('/hook')
+  }
+  const navigate = useNavigate();
+  const [ getParams ,setParam] = useSearchParams() 
+  const [searchParams] = useSearchParams();
+  const userId = searchParams.get('userId');
+  console.log(userId, 'useeriDA')
+
+  function changerouter(){
+    // 路由跳转
+    navigate('/hook/2', {state: {name: 'iiiii'}});
+
+  }
   const handleSet = () => {
     setChatArr([])
     setText1('')
@@ -59,6 +73,7 @@ function WeChat() {
   }
   return (
     <div className="Main">
+      <Button onClick={changerouter}>change router</Button>
       <img src={imgSrc1 + '.jpg'} alt="img" />
       <h4 className="title">wechat 聊天框</h4>
       {/* 展示的聊天信息 */}

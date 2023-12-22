@@ -99,7 +99,7 @@ const routes: IRoute[] = [
   },
   // StatusList
   {
-    path: '/hook',
+    path: '/hook/:id',
     meta: {
       title: 'HOOK学习'
     },
@@ -123,7 +123,7 @@ const routes: IRoute[] = [
     main: Reduxs
   },
   {
-    path: '/login',
+    path: '/plugin',
     meta: {
       title: '插件学习页面'
     },

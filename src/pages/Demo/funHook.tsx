@@ -10,9 +10,16 @@ import { useName } from '../../myHook/randomName'
 import { useFormInput } from '../../myHook/useFormInput'
 import { useOnlineStatus } from '../../myHook/useOnlineStatus'
 
-
+import { useParams, useLocation } from 'react-router-dom'   
 
 function Example() {
+  // 接收路由参数
+  const params = useParams()
+  console.log(params,'params') // {id: '1'} 'params'
+
+  const location = useLocation();
+  const userData = location.state;
+  console.log(userData, 'state传递')
   // 声明一个叫 “count” 的 state 变量。
   /* 面试题：useState返回的是数组而不是对象
    * 用到了解构赋值 数组结构赋值：
