@@ -7,6 +7,10 @@
  */
 import React, { useEffect, useState, useMemo } from 'react'
 import { useName } from '../../myHook/randomName'
+import { useFormInput } from '../../myHook/useFormInput'
+import { useOnlineStatus } from '../../myHook/useOnlineStatus'
+
+
 
 function Example() {
   // 声明一个叫 “count” 的 state 变量。
@@ -61,8 +65,39 @@ function Example() {
 
   const { name, setName } = useName()
 
+  // 将2个公共组件里面的事件抽离出来 封装在useOnlineStatus状态里面
+
+  const isOnline = useOnlineStatus()
+
+  function StatusBar() {
+    const isOnline = useOnlineStatus();
+    return <h1>{isOnline ? '✅ Online' : '❌ Disconnected'}</h1>;
+  }
+
+  function handleSaveClick() {
+    console.log('✅ Progress saved');
+  }
+
+  //  抽离双向绑定逻辑 减少逻辑代码重复
+  const firstNameProps = useFormInput('mary')
+  const secondNameProps = useFormInput('tutu')
+
+
   return (
     <div>
+      <label>
+        first name： 
+        <input {...firstNameProps}></input>
+      </label>
+      <label>
+        second name： 
+        <input {...secondNameProps}></input>
+      </label>
+      <p>{firstNameProps.value} {secondNameProps.value}</p>
+      <button disabled={!isOnline} onClick={handleSaveClick}>
+       {isOnline ? 'Save progress' : 'Reconnecting...'}
+      </button>
+      <StatusBar />
       <p>
         You clicked ，emit useEffect:<span style={{ color: 'red' }}>{count} </span>
         times --- memoCount: <span style={{ color: 'red' }}>{memoCount}</span>
