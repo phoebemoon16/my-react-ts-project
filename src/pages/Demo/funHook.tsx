@@ -10,7 +10,7 @@ import { useName } from '../../myHook/randomName'
 import { useFormInput } from '../../myHook/useFormInput'
 import { useOnlineStatus } from '../../myHook/useOnlineStatus'
 
-import { useParams, useLocation } from 'react-router-dom'   
+import { createSearchParams,useNavigate, useParams, useLocation, useSearchParams} from 'react-router-dom'   
 
 function Example() {
   // 接收路由参数
@@ -20,6 +20,24 @@ function Example() {
   const location = useLocation();
   const userData = location.state;
   console.log(userData, 'state传递')
+
+  const [searchParam, setSearchParam] = useSearchParams()
+
+  const searchParams = Object.fromEntries([...searchParam]);
+  console.log('get all searchParams:', searchParams);
+  setSearchParam({sort: 'edit'})
+  console.log(searchParam.get('sort'), searchParam.get('order'), searchParam.entries(),'searchaParam')
+  
+  // 设置路由参数
+  const navigate = useNavigate();
+  function changeRoute(){
+    navigate({
+      pathname: "/weChat/",
+      search: createSearchParams({
+          foo: "bar"
+      }).toString()
+  });
+  }
   // 声明一个叫 “count” 的 state 变量。
   /* 面试题：useState返回的是数组而不是对象
    * 用到了解构赋值 数组结构赋值：
@@ -92,6 +110,7 @@ function Example() {
 
   return (
     <div>
+       <button onClick={() => changeRoute()}>重定向到chat页面 带上params对象</button>
       <label>
         first name： 
         <input {...firstNameProps}></input>

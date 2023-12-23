@@ -20,7 +20,7 @@
     "react-redux": "^8.0.2",
     "react-router": "^6.1.1",
     "react-router-dom": "^6.1.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.0",
     "react-sortablejs": "^6.1.1",
     "sass": "^1.52.1",
     "sortablejs": "^1.15.1",
