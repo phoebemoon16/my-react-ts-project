@@ -37,12 +37,26 @@ export interface IRoute extends IRouteBase {
 
 const routes: IRoute[] = [
   {
+    path: '/login',
+    meta: {
+      title: '登录页面'
+    },
+    main: Login,
+  },
+  {
     path: '/',
     meta: {
       title: '系统模块'
     },
     main: UserLayout,
     children: [
+      {
+        path: '/list',
+        meta: {
+          title: 'list'
+        },
+        main: List
+      },
       {
         path: '/system',
         meta: {
@@ -63,29 +77,6 @@ const routes: IRoute[] = [
           title: '父子传值'
         },
         main: Parent
-      }
-    ]
-  },
-  {
-    path: '/login',
-    meta: {
-      title: '登录页面'
-    },
-    main: UserLayout,
-    children: [
-      {
-        path: '/login/index',
-        meta: {
-          title: '登录页面'
-        },
-        main: Login
-      },
-      {
-        path: '/list',
-        meta: {
-          title: 'list'
-        },
-        main: List
       }
     ]
   },

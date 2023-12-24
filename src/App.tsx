@@ -13,14 +13,24 @@ import routes from './routers/config'
 import { Layout, Menu, Breadcrumb } from 'antd'
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons'
 import Demo1 from './pages/Demo/demo1'
+import { useSelector } from 'react-redux'
+import { isAuthSelector } from './store/authSlice'
+import { Navigate } from "react-router-dom";
+import Login from './pages/Login/Login'
+import ReactDOM from 'react-dom'
 
 const { SubMenu } = Menu
 const { Header, Content, Sider } = Layout
 
+
 function App() {
   const location = useLocation()
-  console.log(location)
+  const isAuth = useSelector(isAuthSelector)
+  console.log(location, isAuth, 'isAuth')
+
   return (
+    <>
+    { isAuth ? 
     <Layout>
       <Header className="header">
         <div className="logo" />
@@ -73,7 +83,8 @@ function App() {
           </Content>
         </Layout>
       </Layout>
-    </Layout>
+    </Layout> : <Routes><Route path="/login" element={<Login />} /> </Routes>}
+    </>
   )
 }
 

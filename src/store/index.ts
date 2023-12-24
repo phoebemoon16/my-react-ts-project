@@ -8,20 +8,24 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterSlice'
 import themeReducer from './themeSlice'
+import authReducer from './authSlice'
 
 export default configureStore({
   reducer: {
     counter: counterReducer,
-    theme: themeReducer
+    theme: themeReducer,
+    auth: authReducer
   }
 })
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
-    theme: themeReducer
+    theme: themeReducer,
+    auth: authReducer
   }
 })
+
 
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
