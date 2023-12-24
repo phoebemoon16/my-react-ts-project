@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-05-24 11:47:16
  * @Description: 
  */
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -23,7 +23,7 @@ export const counterSlice = createSlice({
     decrement: state => {
       state.value -= 1
     },
-    incrementByAmount: (state, action) => {
+    incrementByAmount: (state, action:PayloadAction<number>) => {
       state.value += action.payload
     }
   }

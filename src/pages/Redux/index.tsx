@@ -13,8 +13,10 @@ import type { AppDispatch, RootState } from '../../store' // 传入类型
 import { Button } from 'antd'
 import './index.scss'
 function WeChat() {
+  // read stroe's state
   const count = useSelector((state: RootState) => state.counter.value)
   const color = useSelector((state: RootState) => state.theme.color)
+  
   //   一 并返回当前的 state 以及与其配套的 dispatch 方法
   const dispatch = useDispatch<AppDispatch>()
   componentDidMount()
