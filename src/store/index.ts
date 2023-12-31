@@ -27,6 +27,8 @@ const store = configureStore({
 })
 
 
+// 每个state的类型定义都会用到这个RootState
 export type RootState = ReturnType<typeof store.getState>
+// 每个dispatch都需要定义这个类型
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch

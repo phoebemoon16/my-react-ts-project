@@ -15,6 +15,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 ReactDOM.render(
+  // 将react和store连接起来， 否则无法使用
   <Provider store={store}>
     <Router>
       <App />

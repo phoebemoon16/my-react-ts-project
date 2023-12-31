@@ -7,7 +7,7 @@
  */
 import React, { useEffect, useReducer, useState } from 'react'
 import { useSelector, useDispatch, Provider } from 'react-redux'
-import { decrement, increment } from '../../store/counterSlice'
+import { decrement, increment, incrementByAmount, incrementAsync } from '../../store/counterSlice'
 import { changeColor } from '../../store/themeSlice'
 import type { AppDispatch, RootState } from '../../store' // 传入类型
 import { Button } from 'antd'
@@ -17,7 +17,7 @@ function WeChat() {
   // read stroe's state
   const count = useSelector((state: RootState) => state.counter.value)
   const color = useSelector((state: RootState) => state.theme.color)
-  //   一 并返回当前的 state 以及与其配套的 dispatch 方法
+  //   react不能直接和redux对话 一 并返回当前的 state 以及与其配套的 dispatch 方法
   const dispatch = useDispatch<AppDispatch>()
 
   const isAuth = useSelector(isAuthSelector)
@@ -40,6 +40,12 @@ function WeChat() {
       </p>
       <Button className="left-10" onClick={() => dispatch(increment())}>
         触发store的加事件
+      </Button>
+      <Button className="left-10" onClick={() => dispatch(incrementByAmount(10))}>
+        触发store的加事件带参数
+      </Button>
+      <Button className="left-10" onClick={() => dispatch(incrementAsync(10))}>
+        触发store的异步事件
       </Button>
       <Button className="left-10" onClick={() => dispatch(decrement())}>
         触发store的减事件
