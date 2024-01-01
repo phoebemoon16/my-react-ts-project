@@ -49,6 +49,7 @@ export const counterSlice = createSlice({
   }
 })
 
+// 可以用于刚开始进入页面，触发用户接口等 dispatch异步接口
 export const incrementAsync = createAsyncThunk(
   "count/increamentAsync",
   async (amount:number) => {
